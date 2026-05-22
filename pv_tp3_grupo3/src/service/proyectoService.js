@@ -6,11 +6,15 @@ const proyectos = [
     {id:105,titulo:"Ciberseguridad y Protección de Datos en la Universidad", categoria:"Informática",estado:"Completado"},
 ];
 export const obtenerProyectos = () => proyectos;//Retorna una copia del arreglo actual. LISTO
-export const agregarProyecto = () => proyectos;//Recibe un objeto y lo añade al arreglo.
+export const agregarProyecto = (nuevoPoyecto) => {
+    proyectos.push(nuevoPoyecto)
+};//Recibe un objeto y lo añade al arreglo.
 export const eliminarProyecto = (proyectos, id) => {//Mantiene todos los proyectos cuyo id sea distinto al que quiero eliminar
     return proyectos.filter(
         proyecto => proyecto.id !== id//si el id coincide, ese elemento desaparece.
 
     );
 }//LISTO
-export const buscarProyecto = () => proyectos;//Recibe un texto y retorna los proyectos que coincidan con el título
+export const buscarProyecto = (texto) => {
+    return proyectos.filter(proyecto=>proyecto.titulo.toLowerCase().includes(texto.toLowerCase()));
+};//Recibe un texto y retorna los proyectos que coincidan con el título

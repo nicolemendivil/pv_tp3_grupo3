@@ -3,6 +3,8 @@ import Header from './components/Header'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import ListaProyectos from "./components/ListaProyectos"
+import "./css/style.css";
+
 
 function App() {
   return(
