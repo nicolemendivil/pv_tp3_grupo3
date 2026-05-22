@@ -1,8 +1,8 @@
 function Footer(){
     return(
-        <nav>
-            <h2>Programación Visual 2026</h2>
-        </nav>
+        <div className="fondo">
+            <p>Programación Visual 2026</p>
+        </div>
     );
 }
 export default Footer

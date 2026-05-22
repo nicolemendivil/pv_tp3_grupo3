@@ -88,6 +88,7 @@ function ListaProyectos(){
             </button>
 
             <hr />
+            <div className="tabla">
             <table border={1} style= {{borderCollapse:'collapse'}}>
                 <thead>
                 <tr>
@@ -110,6 +111,7 @@ function ListaProyectos(){
                     )}
                 </tbody>
             </table>
+            </div>
         </div>
 
     );

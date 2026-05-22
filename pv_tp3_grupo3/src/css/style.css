@@ -27,7 +27,7 @@ header {
 nav {
 
     background-color: #294d73;
-
+    text-align: center;
     padding: 10px;
 }
 
@@ -72,6 +72,10 @@ main {
 h2, h3 {
 
     color: #1e3a5f;
+    text-align: center;
+}
+.titulo{
+    color: gray;
 }
 
 /* INPUTS */
@@ -85,6 +89,7 @@ input {
     border: 1px solid #ccc;
 
     border-radius: 5px;
+
 }
 
 /* BOTONES */
@@ -115,8 +120,6 @@ button:hover {
 
 table {
 
-    width: 100%;
-
     background-color: white;
 
     margin-top: 20px;
@@ -134,10 +137,15 @@ th {
 td {
 
     padding: 10px;
-
+    color:black;
     text-align: center;
 }
-
+.tabla{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
 /* FOOTER */
 
 footer {
@@ -152,6 +160,7 @@ footer {
 
     margin-top: 20px;
 }
+
 select {
 
     padding: 8px;
@@ -161,4 +170,16 @@ select {
     border-radius: 5px;
 
     border: 1px solid #ccc;
+}
+div.fondo{
+    
+    background-color: #294d73;
+    text-align: center;
+    padding: 10px;
+}
+div{
+    text-align: center;
+}
+p{
+    color: gray;
 }
