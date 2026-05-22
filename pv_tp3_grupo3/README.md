@@ -1,16 +1,12 @@
-# React + Vite
+# pv_tp3_grupo3
+Programación Visual 2026. 
+Trabajo Practico Nº3. Grupo 3. 
+Integrantes: 
+Apellido y Nombre. Usuario de Github. 
+-Chavez, Debora Gissel. debo_gissel 
+-Choque, Alejandra. alejandrachoque 
+-Mendivil Cabrera, Nicole. nicolemendivil
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Descripcion del proyecto.
+Este proyecto permite gestionar proyectos académicos desarrollado con React y Javascript. Cuenta con funcionalidades para agregar, eliminar, buscar y mostrar un listado de proyectos mediante una interfaz organizada en tablas, permitiendo llevar un control claro y ordenado de los trabajos registrados.
+Entre los temas incluidos se encuentran educación digital, innovación pedagógica, estrategias de estudio y ciberseguridad. Además, el sistema permite identificar el estado de cada proyecto, como "En Proceso", "Completado" o "En Pausa".
