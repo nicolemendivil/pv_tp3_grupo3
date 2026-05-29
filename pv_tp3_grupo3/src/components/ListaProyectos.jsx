@@ -100,15 +100,14 @@ function ListaProyectos(){
                 </tr>
                 </thead>
                 <tbody>
-                    {proyectos.map((proyecto) => 
-                        <tr key={proyecto.id}>
-                            <td>{proyecto.id}</td>
-                            <td>{proyecto.titulo}</td>
-                            <td>{proyecto.categoria}</td>
-                            <td>{proyecto.estado}</td>
-                            <td><button onClick={()=> eliminar(proyecto.id)}>Eliminar</button> </td>
-                        </tr>
-                    )}
+                    {proyectos.map((proyecto) => (
+                        <ProyectoCard
+                        key={proyecto.id}
+                        proyecto={proyecto}
+                        eliminar={eliminar}
+                        />
+
+                    ))}
                 </tbody>
             </table>
             </div>
