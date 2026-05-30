@@ -1,27 +1,19 @@
-function ProyectoCard({ proyecto, eliminar }) {
+function ProyectoCard({ proyecto, quitarProyecto }) {
 
     const {id,titulo,categoria,estado} = proyecto;
 
     return (
-
-        <tr>
-
-            <td>{id}</td>
-
-            <td>{titulo}</td>
-
-            <td>{categoria}</td>
-
-            <td>{estado}</td>
-
-            <td>
-
-                <button onClick={() => eliminar(id)}>Eliminar</button>
-
-            </td>
-
-        </tr>
-    );
+        
+          <div className="card" >
+            <h2>Titulo : {titulo}</h2>
+            <p>Categoria : {categoria}</p>
+            <p>Estado: {estado ? "Hecho" : "En proceso"}</p>
+            <button onClick={()=>quitarProyecto(proyecto)}>Eliminar</button>
+            <button>Ver detalle</button>
+          </div>
+      
+     
+    )
 }
 
 export default ProyectoCard;

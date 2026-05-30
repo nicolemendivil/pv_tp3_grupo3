@@ -1,8 +1,10 @@
+import Nav from './Nav.jsx';
 function Header(){
     return(
-        <div className="fondo">
+        <header>
             <h2 className="titulo">Trabajo Practico Nº3</h2>
-        </div>
+            <Nav/>
+        </header>
     );
 }
 export default Header

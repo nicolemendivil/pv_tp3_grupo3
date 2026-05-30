@@ -1,8 +1,8 @@
 function Footer(){
     return(
-        <div className="fondo">
+        <footer>
             <p>Programación Visual 2026</p>
-        </div>
+        </footer>
     );
 }
 export default Footer
