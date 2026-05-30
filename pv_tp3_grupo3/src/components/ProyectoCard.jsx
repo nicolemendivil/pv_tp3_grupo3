@@ -1,19 +1,15 @@
-function ProyectoCard({ proyecto, quitarProyecto }) {
-
-    const {id,titulo,categoria,estado} = proyecto;
-
-    return (
-        
-          <div className="card" >
-            <h2>Titulo : {titulo}</h2>
-            <p>Categoria : {categoria}</p>
-            <p>Estado: {estado ? "Hecho" : "En proceso"}</p>
-            <button onClick={()=>quitarProyecto(proyecto)}>Eliminar</button>
-            <button>Ver detalle</button>
-          </div>
-      
-     
-    )
+const ProyectoCard = ({ proyecto, eliminar, verDetalle }) =>{
+  const { id, titulo, categoria, estado } = proyecto; //DESESTRUCTURACION
+  return (
+    <div className="card">
+      <h2>{titulo}</h2>
+      <p>{categoria}</p>
+      <p>{estado}</p>
+      <div className="btn-contenedor">
+        <button className="btn btn-eliminar" onClick={() => eliminar(id)}>Eliminar</button>
+        <button className="btn btn-detalle" onClick={() => verDetalle(proyecto)}>Ver detalle</button>
+        </div>
+    </div>
+  );
 }
-
 export default ProyectoCard;
