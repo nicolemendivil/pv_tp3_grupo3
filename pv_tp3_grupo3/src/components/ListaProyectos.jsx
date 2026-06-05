@@ -1,28 +1,41 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Titulo from "./Titulo";
 import proyectoService from "../service/proyectoService.js";
 import ProyectoCard from "../components/ProyectoCard.jsx";
 import DetalleProyecto from "../components/DetalleProyecto.jsx";
-import RegistroActividad from "./RegistroActividad.jsx";
+import RegistroActividad from "../components/RegistroActividad.jsx";
+import FormularioProyecto from "../components/FormularioProyecto.jsx";
 
 const ListaProyectos = () => {
   const [proyectos, setProyectos] = useState([]); //inicia con lista vacia
   const [texto, setTexto] = useState("");
+
   useEffect(() => {
     //funcion de efecto, para renderizar estadoi de componentes
     //se ejecuta una sola vez
     //setProyectos(obtenerProyectos());//actualizar una varible de estado
-    setProyectos(proyectoService.obtenerProyectos());
+    //setProyectos(proyectoService.obtenerProyectos());
+    const datos = proyectoService.obtenerProyectos();
+    setProyectos(datos);
+    setProyectosFiltrados(datos);
   }, []);
   // Estados del formulario
-  const [titulo, setTitulo] = useState("");
-  const [categoria, setCategoria] = useState("");
-  const [estado, setEstado] = useState("");
+  //const [titulo, setTitulo] = useState("");
+  //const [categoria, setCategoria] = useState("");
+  //const [estado, setEstado] = useState("");
   const [proyectoSeleccionado, setProyectoSeleccionado] = useState("");
   //Estado de la actualizacion
-  const[ultimaActualizacion, setUltimaActualizacion]=useState("");
-  //useEffect 
+  const [ultimaActualizacion, setUltimaActualizacion] = useState("");
+  //Bandera para acciones de agregar y eliminar
+  const accionUsuario = useRef(false);
+  //Proyecto para la busqueda
+  const [proyectosFiltrados, setProyectosFiltrados] = useState([]);
+
+  //useEffect
   useEffect(() => {
+    if (!accionUsuario.current) {
+      return;
+    }
 
     const ahora = new Date();
 
@@ -33,74 +46,56 @@ const ListaProyectos = () => {
     const horas = String(ahora.getHours()).padStart(2, "0");
     const minutos = String(ahora.getMinutes()).padStart(2, "0");
 
-    const mensaje =
-        `${dia}/${mes}/${anio} a las ${horas}:${minutos} hs.`;
+    const mensaje = `${dia}/${mes}/${anio} a las ${horas}:${minutos} hs.`;
 
     setUltimaActualizacion(mensaje);
+  }, [proyectos]);
 
-}, [proyectos]);
-
-
+  //Eliminar proyecto
   const eliminar = (id) => {
-    setProyectos(proyectoService.eliminarProyecto(proyectos, id));
+    accionUsuario.current = true; //bandera
+    const nuevos = proyectoService.eliminarProyecto(proyectos, id);
+
+    setProyectos(nuevos);
+    setProyectosFiltrados(nuevos);
   };
+  //Buscar proyecto
   const buscar = (texto) => {
     console.log(`Buscar: ${texto}`);
     setTexto(texto);
-    setProyectos(proyectoService.buscarProyecto(texto));
+    setProyectosFiltrados(proyectoService.buscarProyecto(texto));
   };
   // Agregar proyecto
-  const agregar = () => {
+  const agregar = (datosProyecto) => {
+    accionUsuario.current = true; //bandera
+    
     const nuevoProyecto = {
       id: Date.now(),
-      titulo: titulo,
-      categoria: categoria,
-      estado: estado,
+      titulo: datosProyecto.titulo,
+      categoria: datosProyecto.categoria,
+      estado: datosProyecto.estado
     };
     //agregarProyecto(nuevoProyecto);
     //setProyectos(obtenerProyectos());
     proyectoService.agregarProyecto(nuevoProyecto);
-    setProyectos(proyectoService.obtenerProyectos());
-    // Limpiar formulario
-    setTitulo("");
-    setCategoria("");
-    setEstado("");
+    //setProyectos(proyectoService.obtenerProyectos());
+
+    const nuevos = proyectoService.obtenerProyectos(); //para la busqueda
+
+    setProyectos(nuevos); //para la busqueda
+    setProyectosFiltrados(nuevos); //para la busqueda
   };
+
   return (
     <div>
       <Titulo valor={"Proyectos"}></Titulo>
-      
       <input
         type="text"
         placeholder="Buscar proyecto"
         value={texto}
         onChange={(e) => buscar(e.target.value)}
       />
-      <h3>Agregar Proyecto</h3>
-
-      <input
-        type="text"
-        placeholder="Titulo"
-        value={titulo}
-        onChange={(e) => setTitulo(e.target.value)}
-      />
-
-      <select value={categoria} onChange={(e) => setCategoria(e.target.value)}>
-        <option value="">Categoria</option>
-        <option>Tecnologia Educativa</option>
-        <option>Educación Digital</option>
-        <option>Pedagogía</option>
-        <option>Informática</option>
-      </select>
-
-      <select value={estado} onChange={(e) => setEstado(e.target.value)}>
-        <option value="">Estado</option>
-        <option>En Proceso</option>
-        <option>Completado</option>
-        <option>En Pausa</option>
-      </select>
-
-      <button onClick={agregar}>Agregar</button>
+      <FormularioProyecto agregar={agregar} />
       <hr />
       {proyectoSeleccionado && (
         <DetalleProyecto
@@ -109,20 +104,20 @@ const ListaProyectos = () => {
         />
       )}
       <div className="tabla">
-        {proyectos.map((proyecto) => (
-          <ProyectoCard
-            key={proyecto.id}
-            proyecto={proyecto}
-            eliminar={eliminar}
-            verDetalle={setProyectoSeleccionado}
-          />
-        ))}
+        {proyectosFiltrados.map(
+          (
+            proyecto, //cambio de proyectos por proyectosFiltrados
+          ) => (
+            <ProyectoCard
+              key={proyecto.id}
+              proyecto={proyecto}
+              eliminar={eliminar}
+              verDetalle={setProyectoSeleccionado}
+            />
+          ),
+        )}
       </div>
-      {ultimaActualizacion && (
-      <RegistroActividad
-      fecha={ultimaActualizacion}
-      />
-       )}
+      {ultimaActualizacion && <RegistroActividad fecha={ultimaActualizacion} />}
     </div>
   );
 };
