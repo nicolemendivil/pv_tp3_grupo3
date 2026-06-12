@@ -28,8 +28,8 @@ const FormularioProyecto = ({ agregar}) => {
   return (
     <form onSubmit={handleSubmit}>
       <TextField
-        label="título"
-        name="Titulo"
+        label="Título"
+        name="titulo"
         value={titulo}
         onChange={handleChange}
         fullWidth
@@ -40,6 +40,7 @@ const FormularioProyecto = ({ agregar}) => {
         <InputLabel>Categoría</InputLabel>
 
         <Select
+          label="Categoría"
           name="categoria"
           value={categoria}
           onChange={handleChange}
@@ -64,6 +65,7 @@ const FormularioProyecto = ({ agregar}) => {
         <InputLabel>Estado</InputLabel>
 
         <Select
+          label="Estado"
           name="estado"
           value={estado}
           onChange={handleChange}
