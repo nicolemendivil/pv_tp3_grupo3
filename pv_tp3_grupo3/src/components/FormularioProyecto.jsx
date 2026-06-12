@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {TextField,Select,MenuItem,Button,FormControl,InputLabel} from "@mui/material";
 const FormularioProyecto = ({ agregar}) => {
     const [formulario, setFormulario] = useState({
     titulo: "",
@@ -26,29 +27,61 @@ const FormularioProyecto = ({ agregar}) => {
     };
   return (
     <form onSubmit={handleSubmit}>
-      <h3>Agregar Proyecto</h3>
-      <input
-        type="text"
-        name="titulo"
-        placeholder="Título"
+      <TextField
+        label="título"
+        name="Titulo"
         value={titulo}
         onChange={handleChange}
+        fullWidth
+        margin="normal"
       />
-      <select name="categoria" value={categoria} onChange={handleChange}>
-        <option value="">Categoría</option>
-        <option>Tecnologia Educativa</option>
-        <option>Educación Digital</option>
-        <option>Pedagogía</option>
-        <option>Informática</option>
-      </select>
 
-      <select name="estado" value={estado} onChange={handleChange}>
-        <option value="">Estado</option>
-        <option>En Proceso</option>
-        <option>Completado</option>
-        <option>En Pausa</option>
-      </select>
-      <button type="submit"> Agregar</button>
+      <FormControl fullWidth margin="normal">
+        <InputLabel>Categoría</InputLabel>
+
+        <Select
+          name="categoria"
+          value={categoria}
+          onChange={handleChange}
+        >
+          <MenuItem value="">Seleccione</MenuItem>
+          <MenuItem value="Tecnologia Educativa">
+            Tecnologia Educativa
+          </MenuItem>
+          <MenuItem value="Educación Digital">
+            Educación Digital
+          </MenuItem>
+          <MenuItem value="Pedagogía">
+            Pedagogía
+          </MenuItem>
+          <MenuItem value="Informática">
+            Informática
+          </MenuItem>
+        </Select>
+      </FormControl>
+
+      <FormControl fullWidth margin="normal">
+        <InputLabel>Estado</InputLabel>
+
+        <Select
+          name="estado"
+          value={estado}
+          onChange={handleChange}
+        >
+          <MenuItem value="">Seleccione</MenuItem>
+          <MenuItem value="En Proceso">En Proceso</MenuItem>
+          <MenuItem value="Completado">Completado</MenuItem>
+          <MenuItem value="En Pausa">En Pausa</MenuItem>
+        </Select>
+      </FormControl>
+
+      <Button
+        type="submit"
+        variant="contained"
+      >
+        Agregar
+      </Button>
+
     </form>
   );
 };

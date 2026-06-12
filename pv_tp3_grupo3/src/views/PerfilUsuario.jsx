@@ -1,21 +1,48 @@
+import { Container, Paper, Typography } from "@mui/material";
+
 const PerfilUsuario = () => {
   return (
-    <div>
-      <h1>Perfil de Usuario</h1>
-      <div>
-        <p><strong>Nombre:</strong> Juan Carlos Rodriguez</p>
-        <p><strong>Rol:</strong> Profesor</p>
-        <p><strong>Institución:</strong> Universidad Nacional de Jujuy</p>
+    <Container>
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h4" gutterBottom>
+          Perfil de Usuario
+        </Typography>
+
+        <Typography>
+          <strong>Nombre:</strong> Juan Carlos Rodriguez
+        </Typography>
+        <Typography>
+          <strong>Rol:</strong> Profesor
+        </Typography>
+        <Typography>
+          <strong>Institución:</strong> Universidad Nacional de Jujuy
+        </Typography>
+
         <hr />
-        <p><strong>Nombre:</strong> Debora Chavez</p>
-        <p><strong>Rol:</strong> Estudiante</p>
-        <p><strong>Institución:</strong> Universidad Nacional de Jujuy</p>
-         <hr />
-        <p><strong>Nombre:</strong> Nicole Mendivil Cabrera</p>
-        <p><strong>Rol:</strong> Estudiante</p>
-        <p><strong>Institución:</strong> Universidad Nacional de Jujuy</p>
-      </div>
-    </div>
+
+        <Typography>
+          <strong>Nombre:</strong> Debora Chavez
+        </Typography>
+        <Typography>
+          <strong>Rol:</strong> Estudiante
+        </Typography>
+        <Typography>
+          <strong>Institución:</strong> Universidad Nacional de Jujuy
+        </Typography>
+
+        <hr />
+
+        <Typography>
+          <strong>Nombre:</strong> Nicole Mendivil Cabrera
+        </Typography>
+        <Typography>
+          <strong>Rol:</strong> Estudiante
+        </Typography>
+        <Typography>
+          <strong>Institución:</strong> Universidad Nacional de Jujuy
+        </Typography>
+      </Paper>
+    </Container>
   );
 };
 

@@ -1,23 +1,39 @@
+import {Container, Typography, Card, CardContent} from "@mui/material"; 
 const Dashboard = () => {
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <p>
+    <Container>
+      <Typography variant="h4" gutterBottom>
+        Dashboard
+      </Typography>
+
+      <Typography paragraph>
         Bienvenido al sistema de gestión de proyectos. Desde aquí puede
         consultar información general sobre los proyectos registrados.
-      </p>
-      <div>
-        <div>
-          <h3>Total de proyectos</h3>
-          <p>5</p>
-        </div>
+      </Typography>
 
-        <div>
-          <h3>Proyectos en curso</h3>
-          <p>2</p>
-        </div>
-      </div>
-    </div>
+      <Card sx={{ mb: 2 }}>
+        <CardContent>
+          <Typography variant="h6">
+            Total de proyectos
+          </Typography>
+          <Typography>
+            5
+          </Typography>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardContent>
+          <Typography variant="h6">
+            Proyectos en curso
+          </Typography>
+          <Typography>
+            2
+          </Typography>
+        </CardContent>
+      </Card>
+    </Container>
   );
 };
+
 export default Dashboard;

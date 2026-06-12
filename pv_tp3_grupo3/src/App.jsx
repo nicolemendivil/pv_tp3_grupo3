@@ -15,9 +15,11 @@ function App() {
       <Nav></Nav>
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="dashboard" element={<Dashboard/>}/>
         <Route path="/proyectos" element={<ListaProyectos />} />
         <Route path="/proyectos/:id" element={<DetalleProyecto />} />
         <Route path="/perfil" element={<PerfilUsuario />} />
+
       </Routes>
       <Footer></Footer>
     </div>
