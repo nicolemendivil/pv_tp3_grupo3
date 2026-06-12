@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {TextField,Select,MenuItem,Button,FormControl,InputLabel} from "@mui/material";
+import {TextField,Select,MenuItem,Button,FormControl,InputLabel, Box} from "@mui/material";
 const FormularioProyecto = ({ agregar}) => {
     const [formulario, setFormulario] = useState({
     titulo: "",
@@ -26,7 +26,9 @@ const FormularioProyecto = ({ agregar}) => {
     });
     };
   return (
-    <form onSubmit={handleSubmit}>
+  <form onSubmit={handleSubmit}>
+  <Box sx={{ display: "flex", flexDirection:"column" }}>
+    
       <TextField
         label="Título"
         name="titulo"
@@ -35,10 +37,9 @@ const FormularioProyecto = ({ agregar}) => {
         fullWidth
         margin="normal"
       />
-
+      <Box sx={{ display: "flex", gap: 1}}>
       <FormControl fullWidth margin="normal">
         <InputLabel>Categoría</InputLabel>
-
         <Select
           label="Categoría"
           name="categoria"
@@ -76,13 +77,14 @@ const FormularioProyecto = ({ agregar}) => {
           <MenuItem value="En Pausa">En Pausa</MenuItem>
         </Select>
       </FormControl>
-
+      </Box>
+      </Box>
       <Button
         type="submit"
-        variant="contained"
-      >
+        variant="contained">
         Agregar
       </Button>
+      
 
     </form>
   );

@@ -1,46 +1,34 @@
-import { Container, Paper, Typography } from "@mui/material";
+import { Container, Paper, Typography, List, ListItem, ListItemText } from "@mui/material";
 
 const PerfilUsuario = () => {
   return (
     <Container>
-      <Paper sx={{ p: 3 }}>
-        <Typography variant="h4" gutterBottom>
-          Perfil de Usuario
-        </Typography>
+      <Typography variant="h4" gutterBottom>
+        Perfil de Usuarios
+      </Typography>
+      <Paper sx={{ p: 2 }}>
+        <List>
+          <ListItem>
+            <ListItemText
+              primary="Juan Carlos Rodriguez"
+              secondary="Profesor - Universidad Nacional de Jujuy"
+            />
+          </ListItem>
+          <hr/>
+          <ListItem>
+            <ListItemText
+              primary="Débora Chavez"
+              secondary="Estudiante - Universidad Nacional de Jujuy"
+            />
+          </ListItem>
 
-        <Typography>
-          <strong>Nombre:</strong> Juan Carlos Rodriguez
-        </Typography>
-        <Typography>
-          <strong>Rol:</strong> Profesor
-        </Typography>
-        <Typography>
-          <strong>Institución:</strong> Universidad Nacional de Jujuy
-        </Typography>
-
-        <hr />
-
-        <Typography>
-          <strong>Nombre:</strong> Debora Chavez
-        </Typography>
-        <Typography>
-          <strong>Rol:</strong> Estudiante
-        </Typography>
-        <Typography>
-          <strong>Institución:</strong> Universidad Nacional de Jujuy
-        </Typography>
-
-        <hr />
-
-        <Typography>
-          <strong>Nombre:</strong> Nicole Mendivil Cabrera
-        </Typography>
-        <Typography>
-          <strong>Rol:</strong> Estudiante
-        </Typography>
-        <Typography>
-          <strong>Institución:</strong> Universidad Nacional de Jujuy
-        </Typography>
+          <ListItem>
+            <ListItemText
+              primary="Nicole Mendivil Cabrera"
+              secondary="Estudiante - Universidad Nacional de Jujuy"
+            />
+          </ListItem>
+        </List>
       </Paper>
     </Container>
   );

@@ -1,4 +1,4 @@
-import {Container, Typography, Card, CardContent} from "@mui/material"; 
+import {Container, Typography, Card, CardContent, Box} from "@mui/material"; 
 const Dashboard = () => {
   return (
     <Container>
@@ -11,7 +11,8 @@ const Dashboard = () => {
         consultar información general sobre los proyectos registrados.
       </Typography>
 
-      <Card sx={{ mb: 2 }}>
+      <Box sx={{ display: "flex",gap:2,mt: 3 }}>
+        <Card sx={{ flex: 1 }}>
         <CardContent>
           <Typography variant="h6">
             Total de proyectos
@@ -20,20 +21,39 @@ const Dashboard = () => {
             5
           </Typography>
         </CardContent>
-      </Card>
-
-      <Card>
+        </Card>
+        <Card sx={{ flex: 1 }}>
         <CardContent>
           <Typography variant="h6">
-            Proyectos en curso
+            Proyectos Completados
           </Typography>
           <Typography>
             2
           </Typography>
         </CardContent>
       </Card>
+      <Card sx={{ flex: 1 }}>
+        <CardContent>
+          <Typography variant="h6">
+            Proyectos en Proceso
+          </Typography>
+          <Typography>
+            2
+          </Typography>
+        </CardContent>
+      </Card>
+      <Card sx={{ flex: 1 }}>
+        <CardContent>
+          <Typography variant="h6">
+            Proyectos en Pausa
+          </Typography>
+          <Typography>
+            1
+          </Typography>
+        </CardContent>
+      </Card>
+      </Box>
     </Container>
   );
 };
-
 export default Dashboard;
