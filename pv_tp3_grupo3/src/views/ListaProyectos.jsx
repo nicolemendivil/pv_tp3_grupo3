@@ -1,8 +1,7 @@
 import { useEffect, useState, useRef } from "react";
-import Titulo from "./Titulo";
+import Titulo from "../components/Titulo.jsx";
 import proyectoService from "../service/proyectoService.js";
 import ProyectoCard from "../components/ProyectoCard.jsx";
-import DetalleProyecto from "../components/DetalleProyecto.jsx";
 import RegistroActividad from "../components/RegistroActividad.jsx";
 import FormularioProyecto from "../components/FormularioProyecto.jsx";
 
@@ -23,7 +22,7 @@ const ListaProyectos = () => {
   //const [titulo, setTitulo] = useState("");
   //const [categoria, setCategoria] = useState("");
   //const [estado, setEstado] = useState("");
-  const [proyectoSeleccionado, setProyectoSeleccionado] = useState("");
+
   //Estado de la actualizacion
   const [ultimaActualizacion, setUltimaActualizacion] = useState("");
   //Bandera para acciones de agregar y eliminar
@@ -97,12 +96,6 @@ const ListaProyectos = () => {
       />
       <FormularioProyecto agregar={agregar} />
       <hr />
-      {proyectoSeleccionado && (
-        <DetalleProyecto
-          proyecto={proyectoSeleccionado}
-          ocultar={() => setProyectoSeleccionado(null)}
-        />
-      )}
       <div className="tabla">
         {proyectosFiltrados.map(
           (
@@ -112,7 +105,6 @@ const ListaProyectos = () => {
               key={proyecto.id}
               proyecto={proyecto}
               eliminar={eliminar}
-              verDetalle={setProyectoSeleccionado}
             />
           ),
         )}

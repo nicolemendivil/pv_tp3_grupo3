@@ -1,4 +1,5 @@
-const ProyectoCard = ({ proyecto, eliminar, verDetalle }) =>{
+import { Link } from "react-router-dom";
+const ProyectoCard = ({ proyecto, eliminar}) =>{
   const { id, titulo, categoria, estado } = proyecto; //DESESTRUCTURACION
   return (
     <div className="card">
@@ -7,7 +8,9 @@ const ProyectoCard = ({ proyecto, eliminar, verDetalle }) =>{
       <p>{estado}</p>
       <div className="btn-contenedor">
         <button className="btn btn-eliminar" onClick={() => eliminar(id)}>Eliminar</button>
-        <button className="btn btn-detalle" onClick={() => verDetalle(proyecto)}>Ver detalle</button>
+        <Link className="btn btn-detalle" to={`/proyectos/${id}`}>
+            Ver Detalle
+        </Link>
         </div>
     </div>
   );

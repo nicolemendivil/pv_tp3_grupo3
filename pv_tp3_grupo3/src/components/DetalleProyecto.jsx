@@ -1,13 +1,22 @@
+import { useParams, Link } from "react-router-dom";
 import styles from "../css/DetalleProyecto.module.css";
-const DetalleProyecto = ({ proyecto, ocultar }) => {
+import proyectoService from "../service/proyectoService";
+
+const DetalleProyecto = () => {
+  const { id } = useParams();
+  const proyecto = proyectoService.obtenerProyectoPorId(id);
+ 
   const { titulo, descripcion, recursos, equipo } = proyecto;
   return (
     <div className={styles.detalle}>
+      <div>
+        <h2>DETALLE DEL PROYECTO</h2>
+      </div>
       <div className={styles.detalleHeader}>
         <h2 className={styles.detalleTitulo}>{titulo}</h2>
-        <button className={styles.btnCerrar} onClick={ocultar}>
+        <Link to="/proyectos">
           Cerrar detalle
-        </button>
+        </Link>
       </div>
       <p className={styles.detalleDescripcion}>{descripcion.parrafo1}</p>
       <p className={styles.detalleDescripcion}>{descripcion.parrafo2}</p>

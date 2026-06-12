@@ -126,6 +126,11 @@ const proyectoService = (() => {
     },
   ];
   const obtenerProyectos = () => [...proyectos];
+  const obtenerProyectoPorId = (id) => {
+    return proyectos.find(
+      proyecto => proyecto.id === Number(id)
+    );
+  };
   const agregarProyecto = (nuevoProyecto) => {
     return proyectos.push(nuevoProyecto);
   }; //Recibe un objeto y lo añade al arreglo.
@@ -143,6 +148,7 @@ const proyectoService = (() => {
 
   return {
     obtenerProyectos,
+    obtenerProyectoPorId,
     agregarProyecto,
     eliminarProyecto,
     buscarProyecto,

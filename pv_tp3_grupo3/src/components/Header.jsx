@@ -1,9 +1,8 @@
-import Nav from './Nav.jsx';
 function Header(){
     return(
         <header>
-            <h2 className="titulo">Trabajo Practico Nº3</h2>
-            <Nav/>
+            <h2 className="titulo">Trabajo Práctico Nº3</h2>
+            <h2 className="titulo">Sistema de Gestión de Proyectos</h2>
         </header>
     );
 }
