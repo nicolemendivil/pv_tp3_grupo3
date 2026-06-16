@@ -1,6 +1,15 @@
-import { Container, Paper, Typography, List, ListItem, ListItemText } from "@mui/material";
+import {
+  Container,
+  Paper,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
+import { useUsuario } from "../context/UsuarioContext";
 
 const PerfilUsuario = () => {
+  const { usuario } = useUsuario();
   return (
     <Container>
       <Typography variant="h4" gutterBottom>
@@ -10,22 +19,18 @@ const PerfilUsuario = () => {
         <List>
           <ListItem>
             <ListItemText
-              primary="Juan Carlos Rodriguez"
-              secondary="Profesor - Universidad Nacional de Jujuy"
+              primary={usuario.nombre}
+              secondary={`DNI: ${usuario.dni}`}
             />
           </ListItem>
-          <hr/>
           <ListItem>
-            <ListItemText
-              primary="Débora Chavez"
-              secondary="Estudiante - Universidad Nacional de Jujuy"
-            />
+            <ListItemText primary="Rol" secondary={usuario.rol} />
           </ListItem>
 
           <ListItem>
             <ListItemText
-              primary="Nicole Mendivil Cabrera"
-              secondary="Estudiante - Universidad Nacional de Jujuy"
+              primary="Institucion"
+              secondary={usuario.institucion}
             />
           </ListItem>
         </List>

@@ -8,8 +8,10 @@ body {
 header {
     background-color: #1e3a5f;
     color: white;
-    padding: 5px;
-    text-align: center;
+    display: flex;
+    justify-content:space-between;
+    align-items: flex-start;
+    padding: 10px;
 }
 /* NAV */
 
